@@ -1,10 +1,12 @@
 function setup() {
-  createCanvas(400, 400);
-  setupController()
+  createCanvas(windowWidth, windowHeight);
+  setupController();
+  noStroke();
+  noLoop();
 }
 
 function draw() {
-  background(220);
+  background(0);
 }
 
 
