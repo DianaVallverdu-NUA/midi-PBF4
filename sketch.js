@@ -2,21 +2,17 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   setupController();
   noStroke();
-  noLoop();
-}
-
-function draw() {
   background(0);
 }
 
-
+function draw() {}
 
 /**
  * React to inputs from the control change sliders in the Midi controller
- * @param {Event} e 
+ * @param {Event} e
  */
 function allCC(e) {
-  console.log('controller:', e.controller.number,'value:',  e.value);
+  console.log("controller:", e.controller.number, "value:", e.value);
   switch (e.controller.number) {
     case 32: {
       break;
@@ -47,10 +43,10 @@ function allCC(e) {
 
 /**
  * React to inputs from the bottom buttons on the controller
- * @param {Event} e 
+ * @param {Event} e
  */
 function allNoteOn(e) {
-  console.log('controller:', e.data[1],'value:',  e.value);
+  console.log("controller:", e.data[1], "value:", e.value);
   switch (e.data[1]) {
     case 40: {
       if (e.value) {
