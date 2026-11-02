@@ -1,20 +1,20 @@
 function setup() {
-  createCanvas(400, 400);
-  setupController()
+  createCanvas(windowWidth, windowHeight);
+  setupController();
+  noLoop();
+  noStroke();
 }
 
 function draw() {
-  background(220);
+  background(0);
 }
-
-
 
 /**
  * React to inputs from the control change sliders in the Midi controller
- * @param {Event} e 
+ * @param {Event} e
  */
 function allCC(e) {
-  console.log('controller:', e.controller.number,'value:',  e.value);
+  console.log("controller:", e.controller.number, "value:", e.value);
   switch (e.controller.number) {
     case 32: {
       break;
@@ -45,13 +45,15 @@ function allCC(e) {
 
 /**
  * React to inputs from the bottom buttons on the controller
- * @param {Event} e 
+ * @param {Event} e
  */
 function allNoteOn(e) {
-  console.log('controller:', e.data[1],'value:',  e.value);
+  console.log("controller:", e.data[1], "value:", e.value);
   switch (e.data[1]) {
     case 40: {
       if (e.value) {
+        console.log(" 40 pressed");
+        drawRandomCircle();
       } else {
       }
       break;
@@ -75,4 +77,19 @@ function allNoteOn(e) {
       break;
     }
   }
+}
+
+// 1. draw random circle
+/**
+ * Draw circle at a random place
+ */
+function drawRandomCircle() {
+  const r = random(0, 255);
+  const g = random(0, 255);
+  const b = random(0, 255);
+  fill(r, g, b);
+  const x = random(0, windowWidth);
+  const y = random(0, windowHeight);
+  const diam = random(10, 50);
+  circle(x, y, diam);
 }
