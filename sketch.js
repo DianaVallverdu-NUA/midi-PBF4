@@ -34,7 +34,7 @@ let SHAPE = 0;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   setupController();
-  background(0);
+  background(0, 0, 0);
   // noLoop();
   noStroke();
   x = random(0, windowWidth);
@@ -152,6 +152,7 @@ function allNoteOn(e) {
  * Draw circle at a random place
  */
 function drawRandomCircle() {
+  // background(0, 0, 0, 100);
   fill(r, g, b);
   const x = random(0, windowWidth);
   const y = random(0, windowHeight);
@@ -159,6 +160,7 @@ function drawRandomCircle() {
   circle(x, y, diam);
 if(SHAPE === 1)
   square(x, y, diam * 0.5);
+
 }
 
 // 2. draw 100 circles
@@ -169,6 +171,7 @@ function drawManyCircles() {
 }
 
 function drawCircleAtXY() {
+  background(0, 0, 0, 100);
   fill(r, g, b);
   if(SHAPE === 0)
   circle(x, y, diam);
